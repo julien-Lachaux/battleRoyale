@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 module.exports = {
     entry: ['./src/client/indexClient.js'],
@@ -20,7 +21,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Development',
             template: "./public/index.html",
-        })
+        }),
+        new HtmlWebpackIncludeAssetsPlugin({ assets: ['assets/css/style.css'], append: true })
     ],
     module: {
         rules: [{
